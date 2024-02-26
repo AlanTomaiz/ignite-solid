@@ -1,0 +1,15 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# deploy
+dist
+
+# debug
+*.log*
+
+# local env files
+.env
+!.env.example
