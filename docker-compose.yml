@@ -2,6 +2,7 @@ version: '3'
 
 services:
   aula-pg:
+    container_name: aula-pg
     image: bitnami/postgresql
     ports:
       - 5432:5432
