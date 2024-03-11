@@ -20,10 +20,12 @@ export class RegisterUserUseCase {
       throw new UserAlreadyExistsError()
     }
 
-    return this.userRepository.create({
+    const user = await this.userRepository.create({
       name,
       email,
       password_hash,
     })
+
+    return { ...user }
   }
 }
