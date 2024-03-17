@@ -32,7 +32,7 @@ describe('Register Use Case', () => {
 
     await sut.execute(userData)
 
-    expect(() => sut.execute(userData)).rejects.toBeInstanceOf(
+    await expect(() => sut.execute(userData)).rejects.toBeInstanceOf(
       UserAlreadyExistsError,
     )
   })
