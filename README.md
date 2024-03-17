@@ -2,8 +2,8 @@
 
 ## RFs (Requisitos funcionais)
 - [x] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar;
-- [ ] Deve ser possível obter os dados do usuário autenticado;
+- [x] Deve ser possível se autenticar;
+- [x] Deve ser possível obter os dados do usuário autenticado;
 - [ ] Deve ser possível obter o número de check-in realizado;
 - [ ] Deve ser possível obter o histórico de check-in;
 - [ ] Deve ser possível buscar academias próximas;
