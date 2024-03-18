@@ -1,10 +1,10 @@
 import {
   CheckInCreateInput,
-  CheckInRepository,
-} from '@/repositories/check-in-respotiory'
+  CheckInsRepository,
+} from '@/repositories/check-ins-respotiory'
 
 export class CheckInUseCase {
-  constructor(private checkInRepository: CheckInRepository) {}
+  constructor(private checkInRepository: CheckInsRepository) {}
 
   async execute(data: CheckInCreateInput) {
     const hasCheckInTheSameDate =

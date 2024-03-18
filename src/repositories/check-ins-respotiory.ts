@@ -8,7 +8,7 @@ export interface CheckIn {
 
 export type CheckInCreateInput = Omit<CheckIn, 'id' | 'created_at'>
 
-export interface CheckInRepository {
+export interface CheckInsRepository {
   create(data: CheckInCreateInput): Promise<CheckIn>
   findByUserIdOnDate(
     user_id: string,

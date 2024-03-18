@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/prisma'
-import { User, UserCreateInput, UserRepository } from '../user-repository'
+import { User, UserCreateInput, UsersRepository } from '../users-repository'
 
-export class PrismaUserRepository implements UserRepository {
+export class PrismaUsersRepository implements UsersRepository {
   create(data: UserCreateInput): Promise<User> {
     return prisma.user.create({ data })
   }

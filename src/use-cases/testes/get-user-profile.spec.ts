@@ -1,15 +1,15 @@
 import { ResourceNotFoundError } from '@/errors/resource-not-found'
-import { InMemoryUserRepository } from '@/repositories/in-memory/in-memory-user-repository'
+import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-user-repository'
 import { hash } from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { GetUserProfileUseCase } from '../get-user-profile'
 
-let usersRepository: InMemoryUserRepository
+let usersRepository: InMemoryUsersRepository
 let sut: GetUserProfileUseCase
 
 describe('Authenticate Use Case', () => {
   beforeEach(async () => {
-    usersRepository = new InMemoryUserRepository()
+    usersRepository = new InMemoryUsersRepository()
     sut = new GetUserProfileUseCase(usersRepository)
   })
 

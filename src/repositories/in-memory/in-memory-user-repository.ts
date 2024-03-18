@@ -1,6 +1,6 @@
-import { User, UserCreateInput, UserRepository } from '../user-repository'
+import { User, UserCreateInput, UsersRepository } from '../users-repository'
 
-export class InMemoryUserRepository implements UserRepository {
+export class InMemoryUsersRepository implements UsersRepository {
   public users: User[] = []
   async create(data: UserCreateInput) {
     const user = {

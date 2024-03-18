@@ -1,11 +1,12 @@
+import dayjs from 'dayjs'
 import { randomUUID } from 'node:crypto'
 import {
   CheckIn,
   CheckInCreateInput,
-  CheckInRepository,
-} from '../check-in-respotiory'
+  CheckInsRepository,
+} from '../check-ins-respotiory'
 
-export class InMemoryCheckInRepository implements CheckInRepository {
+export class InMemoryCheckInsRepository implements CheckInsRepository {
   public items: CheckIn[] = []
 
   async create(data: CheckInCreateInput) {
@@ -23,7 +24,17 @@ export class InMemoryCheckInRepository implements CheckInRepository {
   }
 
   async findByUserIdOnDate(user_id: string, date: string | Date) {
-    const checkin = this.items.find((row) => row.user_id === user_id)
+    const startOfTheDay = dayjs(date).startOf('date')
+    const endOfTheDay = dayjs(date).endOf('date')
+
+    const checkin = this.items.find((row) => {
+      const checkInDate = dayjs(row.created_at)
+
+      const isOnSameDate =
+        checkInDate.isAfter(startOfTheDay) && checkInDate.isBefore(endOfTheDay)
+
+      return row.user_id === user_id && isOnSameDate
+    })
 
     if (!checkin) {
       return null
