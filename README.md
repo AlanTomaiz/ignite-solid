@@ -1,14 +1,9 @@
-<p align="center">
-  <img alt="Rocketseat Education" src="https://avatars.githubusercontent.com/u/69590972?s=200&v=4" width="100px" />
-</p>
-
+## 📚 GYMPASS style app
 <p align="center">
   <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=5965e0&labelColor=202024" alt="License"></a>
   <img alt="lastcommit" src="https://img.shields.io/github/last-commit/alantomaiz/ignite-solid?color=%235761C3" />
   <a href="https://www.linkedin.com/in/alantomaiz/"><img alt="AlanTomaiz" src="https://img.shields.io/badge/-AlanTomaiz-5965e0?style=flat&logo=Linkedin&logoColor=white" /></a>
 </p>
-
-## 📚 GYMPASS style app
 
 ## 🚀 Tecnologias
 Tecnologias e ferramentas utilizadas no desenvolvimento do projeto:
