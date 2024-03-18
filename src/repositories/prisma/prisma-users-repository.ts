@@ -6,6 +6,12 @@ export class PrismaUsersRepository implements UsersRepository {
     return prisma.user.create({ data })
   }
 
+  findById(id: string): Promise<User | null> {
+    return prisma.user.findUnique({
+      where: { id },
+    })
+  }
+
   findByEmail(email: string): Promise<User | null> {
     return prisma.user.findUnique({
       where: { email },
