@@ -4,6 +4,7 @@ import {
   CheckIn,
   CheckInCreateInput,
   CheckInsRepository,
+  Paginated,
 } from '../check-ins-respotiory'
 
 export class InMemoryCheckInsRepository implements CheckInsRepository {
@@ -23,7 +24,7 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     return checkIn
   }
 
-  async findByUserIdOnDate(user_id: string, date: string | Date) {
+  async findByUserIdOnDate(user_id: string, date: Date) {
     const startOfTheDay = dayjs(date).startOf('date')
     const endOfTheDay = dayjs(date).endOf('date')
 
@@ -41,5 +42,14 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     }
 
     return checkin
+  }
+
+  async fetchUserHistory(user_id: string, { page, limit }: Paginated) {
+    const skipOf = (page - 1) * limit
+    const offset = page * limit
+
+    return this.items
+      .filter((row) => row.user_id === user_id)
+      .slice(skipOf, offset)
   }
 }

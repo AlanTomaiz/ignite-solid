@@ -18,7 +18,7 @@ Tecnologias e ferramentas utilizadas no desenvolvimento do projeto:
 - [x] Deve ser possível se autenticar;
 - [x] Deve ser possível obter os dados do usuário autenticado;
 - [ ] Deve ser possível obter o número de check-in realizado;
-- [ ] Deve ser possível obter o histórico de check-in;
+- [x] Deve ser possível obter o histórico de check-in;
 - [ ] Deve ser possível buscar academias próximas;
 - [ ] Deve ser possível buscar academias por nome;
 - [ ] Deve ser possível realizar check-in em uma academia;
@@ -36,5 +36,5 @@ Tecnologias e ferramentas utilizadas no desenvolvimento do projeto:
 #### RNFs (Requisitos não-funcionais)
 - [x] A do usuário deve ser criptografada;
 - [x] Os dados da aplicação deve ser mantigos em PostgreSQL;
-- [ ] Listas devem ser páginadas com 20 itens por página;
+- [x] Listas devem ser páginadas com 20 itens por página;
 - [ ] O usuário deve ser identificado por JWT;

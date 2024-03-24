@@ -6,12 +6,15 @@ export interface CheckIn {
   created_at: Date
 }
 
+export interface Paginated {
+  page: number
+  limit: number
+}
+
 export type CheckInCreateInput = Omit<CheckIn, 'id' | 'created_at'>
 
 export interface CheckInsRepository {
   create(data: CheckInCreateInput): Promise<CheckIn>
-  findByUserIdOnDate(
-    user_id: string,
-    date: string | Date,
-  ): Promise<CheckIn | null>
+  findByUserIdOnDate(user_id: string, date: Date): Promise<CheckIn | null>
+  fetchUserHistory(user_id: string, options: Paginated): Promise<CheckIn[]>
 }
