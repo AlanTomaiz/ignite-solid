@@ -1,3 +1,5 @@
+import { MaxDistanceError } from '@/errors/max-distance'
+import { MaxNumberOfCheckInsError } from '@/errors/max-number-of-check-ins'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-in-repository'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
@@ -53,7 +55,7 @@ describe('CheckIns Use Case', () => {
         userLatitude: -23.4312121,
         userLongitude: -51.8839795,
       }),
-    ).rejects.toBeInstanceOf(Error)
+    ).rejects.toBeInstanceOf(MaxNumberOfCheckInsError)
   })
 
   it('should be able to create two check in on the different dates', async () => {
@@ -95,6 +97,6 @@ describe('CheckIns Use Case', () => {
         userLatitude: -23.4312121,
         userLongitude: -51.8839795,
       }),
-    ).rejects.toBeInstanceOf(Error)
+    ).rejects.toBeInstanceOf(MaxDistanceError)
   })
 })
