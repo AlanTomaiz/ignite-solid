@@ -17,7 +17,7 @@ Tecnologias e ferramentas utilizadas no desenvolvimento do projeto:
 - [x] Deve ser possível se cadastrar;
 - [x] Deve ser possível se autenticar;
 - [x] Deve ser possível obter os dados do usuário autenticado;
-- [ ] Deve ser possível obter o número de check-in realizado;
+- [x] Deve ser possível obter o número total de check-ins realizados;
 - [x] Deve ser possível obter o histórico de check-in;
 - [ ] Deve ser possível buscar academias próximas;
 - [ ] Deve ser possível buscar academias por nome;

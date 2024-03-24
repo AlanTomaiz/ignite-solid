@@ -1,5 +1,5 @@
+import { RegisterUserUseCase } from '@/get-user-metrics.ts/register-user'
 import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
-import { RegisterUserUseCase } from '@/use-cases/register-user'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
