@@ -1,10 +1,15 @@
 import { randomUUID } from 'node:crypto'
-import { Gym, GymCreateInput, GymsRepository } from '../gyms-repository'
+import {
+  Gym,
+  GymCreateInput,
+  GymsRepository,
+  Paginated,
+} from '../gyms-repository'
 
 export class InMemoryGymsRepository implements GymsRepository {
   public gyms: Gym[] = []
 
-  async create(data: GymCreateInput): Promise<Gym> {
+  async create(data: GymCreateInput) {
     const gym = {
       id: randomUUID(),
       title: data.title,
@@ -28,5 +33,14 @@ export class InMemoryGymsRepository implements GymsRepository {
     }
 
     return gym
+  }
+
+  async searchMany(query: string, { page, limit }: Paginated) {
+    const skipOf = (page - 1) * limit
+    const offset = page * limit
+
+    return this.gyms
+      .filter((row) => row.title.toLowerCase().includes(query.toLowerCase()))
+      .slice(skipOf, offset)
   }
 }
