@@ -1,9 +1,11 @@
+import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates'
 import { randomUUID } from 'node:crypto'
 import {
   Gym,
   GymCreateInput,
   GymsRepository,
   Paginated,
+  findManyNearbyParams,
 } from '../gyms-repository'
 
 export class InMemoryGymsRepository implements GymsRepository {
@@ -23,6 +25,17 @@ export class InMemoryGymsRepository implements GymsRepository {
     this.gyms.push(gym)
 
     return gym
+  }
+
+  async findManyNearby(params: findManyNearbyParams) {
+    return this.gyms.filter((row) => {
+      const distance = getDistanceBetweenCoordinates(
+        { latitude: params.latitude, longitude: params.longitude },
+        { latitude: row.latitude, longitude: row.longitude },
+      )
+
+      return distance <= 10
+    })
   }
 
   async findById(id: string) {
