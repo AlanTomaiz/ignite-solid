@@ -19,9 +19,13 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
       created_at: new Date(),
     }
 
-    this.items.push(checkIn)
+    this.items.push({ ...checkIn })
 
     return checkIn
+  }
+
+  async findById(checkInId: string) {
+    return this.items.find((row) => row.id === checkInId) ?? null
   }
 
   async countByUserId(user_id: string): Promise<number> {
@@ -55,5 +59,14 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     return this.items
       .filter((row) => row.user_id === user_id)
       .slice(skipOf, offset)
+  }
+
+  async save(checkIn: CheckIn) {
+    const checkInIndex = this.items.findIndex((row) => row.id === checkIn.id)
+    if (checkInIndex >= 0) {
+      this.items[checkInIndex] = checkIn
+    }
+
+    return checkIn
   }
 }

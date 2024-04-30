@@ -27,7 +27,7 @@ describe('CheckIns Use Case', () => {
     vi.useFakeTimers()
   })
 
-  it('should be able to create an check in', async () => {
+  it('should be able to create an check-in', async () => {
     const { checkin } = await sut.execute({
       userId: 'user_id',
       gymId: 'gym_id',
@@ -38,7 +38,7 @@ describe('CheckIns Use Case', () => {
     expect(checkin.id).toEqual(expect.any(String))
   })
 
-  it('should not be able to create two check in on the same date', async () => {
+  it('should not be able to create two check-in on the same date', async () => {
     vi.setSystemTime(new Date(2024, 2, 17, 20, 0, 0))
 
     await sut.execute({
@@ -58,7 +58,7 @@ describe('CheckIns Use Case', () => {
     ).rejects.toBeInstanceOf(MaxNumberOfCheckInsError)
   })
 
-  it('should be able to create two check in on the different dates', async () => {
+  it('should be able to create two check-in on the different dates', async () => {
     vi.setSystemTime(new Date(2024, 2, 17, 20, 0, 0))
 
     await sut.execute({
@@ -80,7 +80,7 @@ describe('CheckIns Use Case', () => {
     expect(checkin.id).toEqual(expect.any(String))
   })
 
-  it('should not be able to create check in on distance of gym', async () => {
+  it('should not be able to create check-in on distance of gym', async () => {
     // -23.4505052,-51.9847876
     gymsRepository.gyms.push({
       id: 'gym_distance',

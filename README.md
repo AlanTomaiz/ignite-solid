@@ -21,15 +21,15 @@ Tecnologias e ferramentas utilizadas no desenvolvimento do projeto:
 - [x] Deve ser possível obter o histórico de check-in;
 - [x] Deve ser possível buscar academias próximas (Max 10km);
 - [x] Deve ser possível buscar academias por nome;
-- [ ] Deve ser possível realizar check-in em uma academia;
-- [ ] Deve ser possível validar check-in de um usuário;
-- [ ] Deve ser possível cadastrar academia;
+- [x] Deve ser possível realizar check-in em uma academia;
+- [x] Deve ser possível validar check-in de um usuário;
+- [x] Deve ser possível cadastrar academia;
 
 #### RNs (Regras de negócios)
 - [x] O usuário não deve poder se cadastrar com e-mail duplicado;
 - [x] O usuário não deve realizar dois check-in ao mesmo dia;
 - [x] O usuário não deve realizar check-in a mais de 100m da academia;
-- [ ] O check-in só deve ser validado até 20 minutos após ser criado;
+- [x] O check-in só deve ser validado até 20 minutos após ser criado;
 - [ ] O check-in só deve ser validado por administradores;
 - [ ] A academia só deve ser cadastrada por administradores;
 
