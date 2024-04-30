@@ -1,6 +1,6 @@
 import { CheckInExpiredError } from '@/errors/CheckInExpiredError'
 import { ResourceNotFoundError } from '@/errors/resource-not-found'
-import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-in-repository'
+import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { ValidateCheckInUseCase } from '../validate-check-in'
 

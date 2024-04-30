@@ -1,6 +1,6 @@
 import { MaxDistanceError } from '@/errors/max-distance'
 import { MaxNumberOfCheckInsError } from '@/errors/max-number-of-check-ins'
-import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-in-repository'
+import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { CheckInUseCase } from '../check-in'
