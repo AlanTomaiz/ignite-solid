@@ -1,12 +1,13 @@
 import { Paginated } from '@/@types/global'
+import { Decimal } from '@prisma/client/runtime/library'
 
 export type Gym = {
   id: string
   title: string
   description?: string | null
   phone?: string | null
-  latitude: number
-  longitude: number
+  latitude: number | Decimal
+  longitude: number | Decimal
   created_at: Date | string
 }
 
