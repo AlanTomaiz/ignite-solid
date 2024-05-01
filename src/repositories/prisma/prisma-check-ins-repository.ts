@@ -7,7 +7,7 @@ import {
   CheckInsRepository,
 } from '../check-ins-respotiory'
 
-export class PrismaCheckInsrepository implements CheckInsRepository {
+export class PrismaCheckInsRepository implements CheckInsRepository {
   async create(data: CheckInCreateInput) {
     return prisma.checkIn.create({ data })
   }

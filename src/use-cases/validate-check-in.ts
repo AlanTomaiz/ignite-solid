@@ -1,4 +1,4 @@
-import { CheckInExpiredError } from '@/errors/CheckInExpiredError'
+import { CheckInExpiredError } from '@/errors/check-in-expired'
 import { ResourceNotFoundError } from '@/errors/resource-not-found'
 import { CheckInsRepository } from '@/repositories/check-ins-respotiory'
 import dayjs from 'dayjs'

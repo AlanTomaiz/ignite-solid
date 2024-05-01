@@ -1,5 +1,4 @@
-import { AuthenticateUseCase } from '@/get-user-metrics.ts/authenticate'
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
+import { makeAuthenticateUseCase } from '@/use-cases/factories/make-authenticate-use-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
@@ -14,9 +13,7 @@ export async function authenticate(
 
   const { email, password } = registerBodySchema.parse(request.body)
 
-  const userRepository = new PrismaUsersRepository()
-  const registerUseCase = new AuthenticateUseCase(userRepository)
-
+  const registerUseCase = makeAuthenticateUseCase()
   await registerUseCase.execute({ email, password })
 
   return reply.status(200).send()
