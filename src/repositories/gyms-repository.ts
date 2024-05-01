@@ -1,3 +1,5 @@
+import { Paginated } from '@/@types/global'
+
 export type Gym = {
   id: string
   title: string
@@ -8,21 +10,16 @@ export type Gym = {
   created_at: Date | string
 }
 
-export interface Paginated {
-  page: number
-  limit: number
-}
-
 export type GymCreateInput = Omit<Gym, 'id' | 'created_at'>
 
-export interface findManyNearbyParams {
+export interface FindManyNearbyParams {
   latitude: number
   longitude: number
 }
 
 export interface GymsRepository {
   create(data: GymCreateInput): Promise<Gym>
-  findManyNearby(params: findManyNearbyParams): Promise<Gym[]>
+  findManyNearby(params: FindManyNearbyParams): Promise<Gym[]>
   findById(id: string): Promise<Gym | null>
   searchMany(query: string, options: Paginated): Promise<Gym[]>
 }

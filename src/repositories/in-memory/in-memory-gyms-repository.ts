@@ -1,11 +1,11 @@
+import { Paginated } from '@/@types/global'
 import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates'
 import { randomUUID } from 'node:crypto'
 import {
+  FindManyNearbyParams,
   Gym,
   GymCreateInput,
   GymsRepository,
-  Paginated,
-  findManyNearbyParams,
 } from '../gyms-repository'
 
 export class InMemoryGymsRepository implements GymsRepository {
@@ -27,7 +27,7 @@ export class InMemoryGymsRepository implements GymsRepository {
     return gym
   }
 
-  async findManyNearby(params: findManyNearbyParams) {
+  async findManyNearby(params: FindManyNearbyParams) {
     return this.gyms.filter((row) => {
       const distance = getDistanceBetweenCoordinates(
         { latitude: params.latitude, longitude: params.longitude },

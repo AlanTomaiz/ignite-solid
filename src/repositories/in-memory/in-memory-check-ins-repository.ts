@@ -1,10 +1,10 @@
+import { Paginated } from '@/@types/global'
 import dayjs from 'dayjs'
 import { randomUUID } from 'node:crypto'
 import {
   CheckIn,
   CheckInCreateInput,
   CheckInsRepository,
-  Paginated,
 } from '../check-ins-respotiory'
 
 export class InMemoryCheckInsRepository implements CheckInsRepository {
@@ -24,8 +24,8 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     return checkIn
   }
 
-  async findById(checkInId: string) {
-    return this.items.find((row) => row.id === checkInId) ?? null
+  async findById(checkin_id: string) {
+    return this.items.find((row) => row.id === checkin_id) ?? null
   }
 
   async countByUserId(user_id: string): Promise<number> {

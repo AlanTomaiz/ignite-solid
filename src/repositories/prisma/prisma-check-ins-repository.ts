@@ -1,10 +1,10 @@
+import { Paginated } from '@/@types/global'
 import { prisma } from '@/lib/prisma'
 import dayjs from 'dayjs'
 import {
   CheckIn,
   CheckInCreateInput,
   CheckInsRepository,
-  Paginated,
 } from '../check-ins-respotiory'
 
 export class PrismaCheckInsrepository implements CheckInsRepository {
@@ -12,9 +12,9 @@ export class PrismaCheckInsrepository implements CheckInsRepository {
     return prisma.checkIn.create({ data })
   }
 
-  async findById(checkInId: string) {
+  async findById(checkin_id: string) {
     return prisma.checkIn.findUnique({
-      where: { id: checkInId },
+      where: { id: checkin_id },
     })
   }
 
