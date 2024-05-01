@@ -1,6 +1,5 @@
 import { Paginated } from '@/@types/global'
 import { prisma } from '@/lib/prisma'
-import { getDistanceBetweenCoordinatesQuery } from '@/utils/get-distance-between-coordinates'
 import {
   FindManyNearbyParams,
   Gym,
@@ -12,7 +11,7 @@ export class PrimsaGymsRepository implements GymsRepository {
   async findManyNearby({ latitude, longitude }: FindManyNearbyParams) {
     return prisma.$queryRaw<Gym[]>`
       SELECT * FROM gyms
-      WHERE ${getDistanceBetweenCoordinatesQuery({ latitude, longitude })} <= 10
+      WHERE ( 6371 * acos( cos( radians(${latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(${longitude}) ) + sin( radians(${latitude}) ) * sin( radians( latitude ) ) ) ) <= 10
     `
   }
 
