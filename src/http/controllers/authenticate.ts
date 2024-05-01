@@ -14,7 +14,9 @@ export async function authenticate(
   const { email, password } = registerBodySchema.parse(request.body)
 
   const registerUseCase = makeAuthenticateUseCase()
-  await registerUseCase.execute({ email, password })
+  const { user } = await registerUseCase.execute({ email, password })
 
-  return reply.status(200).send()
+  const token = await reply.jwtSign({}, { sub: user.id })
+
+  return reply.status(201).send(token)
 }
