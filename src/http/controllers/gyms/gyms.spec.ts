@@ -8,7 +8,7 @@ let token: string
 describe('Gyms (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
-    const { token: userToken } = await CreateAndAuthenticateUser(app)
+    const { token: userToken } = await CreateAndAuthenticateUser(app, true)
 
     token = userToken
   })
